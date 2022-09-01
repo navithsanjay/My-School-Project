@@ -1,0 +1,53 @@
+import tkinter as tki
+
+a=tki.Tk()
+a.geometry('500x400')
+a.title('REMAINDER')
+work_var=tki.StringVar()
+def submit():
+    work=work_var.get()
+    print('The Work is:'+work)
+    work_var.set("")
+
+work_label=tki.Label(a,text='Work',font=('calibre',10,'bold'))
+work_entry=tki.Entry(a,textvariable=work_var,font=('calibre',10,'bold'))
+work_label.pack()
+work_entry.pack()
+
+option1=range(1,25)
+values1=tki.StringVar(a)
+values1.set('Hour')
+menu1=tki.OptionMenu(a,values1,*option1)
+menu1.pack()
+
+option2=range(1,61)
+values2=tki.StringVar(a)
+values2.set('Minute')
+menu2=tki.OptionMenu(a,values2,*option2)
+menu2.pack()
+
+option3=range(1,32)
+values3=tki.StringVar(a)
+values3.set('Day')
+menu3=tki.OptionMenu(a,values3,*option3)
+menu3.pack()
+
+option4=range(1,13)
+values4=tki.StringVar(a)
+values4.set('Month')
+menu4=tki.OptionMenu(a,values4,*option4)
+menu4.pack()
+
+option=['Whatsapp Remaider','Voice Remainder','System Auto Shutdown','Auto File Opening']
+values=tki.StringVar(a)
+values.set('Type of Remainder')
+menu=tki.OptionMenu(a,values,*option)
+menu.pack()
+
+def answer():
+    print('Seleted Option:{}'.format(values.get()))
+    return None
+
+button=tki.Button(a,text='submit',command=answer)
+button.pack()
+a.mainloop()
